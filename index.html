@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="us">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vita's Diner</title>
+    <link rel="stylesheet" href="nav.css">
+    <style>
+        body {
+            margin: 0;
+            background-color: #F9E582;
+        }
+
+        .menu {
+            text-align: center;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+
+        .valgt {
+            color: #3D5BA9;
+            transition: ease-in 0.6s;
+        }
+
+        .liste {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        img {
+            width: 100%;
+            border: 2px solid transparent;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+            padding-top: 75px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        p {
+            text-align: left;
+            margin-left: 0.5em;
+        }
+
+        #leftPris {
+            float: right;
+            margin-right: 1em;
+        }
+
+        a {
+            text-align: center;
+        }
+
+        .splash {
+            height: 100vh;
+            width: 100%;
+            background-color: #312C14;
+        }
+
+        #logo {
+            margin-top: 150px;
+        }
+
+        header #logo {
+            display: block;
+            margin: 0 auto;
+            padding: 6vw 0 0 0;
+            text-align: center !important;
+            max-width: 50%;
+        }
+
+        header #open {
+            display: block;
+            margin: 0 auto;
+            text-align: center !important;
+            max-width: 75%;
+            padding: 4vw 0 0 0;
+        }
+
+        header #breakfast {
+            display: block;
+            margin: 0 auto;
+            text-align: center !important;
+            max-width: 50%;
+            padding: 4vw 0 0 0;
+        }
+
+        header #see {
+            display: block;
+            margin: 0 auto;
+            text-align: center !important;
+            max-width: 50%;
+            padding: 4vw 0 0 0;
+        }
+
+        #popup {
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            display: none;
+            overflow: scroll;
+        }
+
+        #indhold {
+
+            width: 70vw;
+            margin: 1rem auto;
+            background-color: transparent;
+            padding: 5px;
+            transition: ease-in 2s;
+            margin: 0 auto;
+        }
+
+        #luk {
+            position: fixed;
+            margin-top: 2rem;
+            right: 17rem;
+            padding-right: 2rem;
+        }
+
+        #luk button {
+            font-size: 2rem;
+            padding: 1rem 2rem;
+        }
+
+        .retter {
+            border-width: 5px;
+            border: 4.5px solid #312a09;
+            padding: 0px;
+            transition: ease-in 2s;
+            margin: 1.8em;
+            cursor: pointer;
+            max-height: 530px;
+            background-color: #ffeead;
+        }
+
+        .ret {
+            border: 5px double #e81d21;
+            padding: 0em;
+            transition: ease-in 2s;
+            margin: 1em;
+            cursor: pointer;
+            max-height: 500px;
+            overflow: auto;
+            background-color: #fdf6d5;
+        }
+
+        @media only screen and (min-width: 500px) {
+            .liste {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media only screen and (min-width: 800px) {
+            .liste {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            header #breakfastBig {
+                display: none;
+            }
+
+            .nav-toggle {
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                user-select: none;
+                cursor: pointer;
+                height: 1.5rem;
+                left: 1rem;
+                position: fixed;
+                top: 1rem;
+                width: 2rem;
+                z-index: 2;
+            }
+        }
+
+        @media (min-width: 420px) {
+            header #logo {
+                display: block;
+                margin: 0 auto;
+                padding: 6vw 0 0 0;
+                text-align: center !important;
+                max-width: 50%;
+            }
+
+            header #open {
+                display: block;
+                margin: 0 auto;
+                text-align: center !important;
+                max-width: 70%;
+                padding: 3vw 0 0 0;
+            }
+
+            header #breakfast {
+                display: none;
+            }
+
+            header #breakfastBig {
+                display: block;
+                margin: 0 auto;
+                text-align: center !important;
+                max-width: 55%;
+                padding: 2vw 0 0 0;
+            }
+
+            header #see {
+                display: block;
+                margin: 0 auto;
+                text-align: center !important;
+                max-width: 55%;
+                padding: 2vw 0 0 0;
+            }
+        }
+
+        @media (min-width: 576px) {
+            header #logo {
+                display: block;
+                margin: 0 auto;
+                padding: 4vw 0 0 0;
+                text-align: center !important;
+                max-width: 40%;
+            }
+
+            header #open {
+                display: block;
+                margin: 0 auto;
+                text-align: center !important;
+                max-width: 45%;
+                padding: 3vw 0 0 0;
+            }
+
+            header #breakfast {
+                display: none;
+            }
+
+            header #breakfastBig {
+                display: block;
+                margin: 0 auto;
+                text-align: center !important;
+                max-width: 40%;
+                padding: 2vw 0 0 0;
+            }
+
+            header #see {
+                display: block;
+                margin: 0 auto;
+                text-align: center !important;
+                max-width: 40%;
+                padding: 2vw 0 0 0;
+            }
+        }
+
+
+        @media only screen and (min-width: 768px) {
+            header #logo {
+                display: block;
+                margin: 0 auto;
+                padding: 3vw 0 0 0;
+                text-align: center !important;
+                max-width: 30%;
+            }
+
+            header #open {
+                display: block;
+                margin: 0 auto;
+                text-align: center !important;
+                max-width: 40%;
+                padding: 2vw 0 0 0;
+            }
+
+            header #breakfast {
+                display: none;
+            }
+
+            header #breakfastBig {
+                display: block;
+                margin: 0 auto;
+                text-align: center !important;
+                max-width: 33%;
+                padding: 2vw 0 0 0;
+            }
+
+            header #see {
+                display: block;
+                margin: 0 auto;
+                text-align: center !important;
+                max-width: 23%;
+                padding: 1vw 0 0 0;
+            }
+        }
+
+        @media only screen and (min-width: 992px) {
+            header #logo {
+                display: block;
+                margin: 0 auto;
+                padding: 3vw 0 0 0;
+                text-align: center !important;
+                max-width: 25%;
+            }
+
+            header #open {
+                display: block;
+                margin: 0 auto;
+                text-align: center !important;
+                max-width: 33%;
+                padding: 2vw 0 0 0;
+            }
+
+            header #breakfast {
+                display: none;
+            }
+
+            header #breakfastBig {
+                display: block;
+                margin: 0 auto;
+                text-align: center !important;
+                max-width: 23%;
+                padding: 2vw 0 0 0;
+            }
+
+            header #see {
+                display: block;
+                margin: 0 auto;
+                text-align: center !important;
+                max-width: 23%;
+                padding: 1vw 0 0 0;
+            }
+        }
+
+
+
+        @media only screen and (min-width: 1200px) {
+            header #logo {
+                display: block;
+                margin: 0 auto;
+                padding: 2vw 0 0 0;
+                text-align: center !important;
+                max-width: 22%;
+            }
+
+            header #open {
+                display: block;
+                margin: 0 auto;
+                text-align: center !important;
+                max-width: 30%;
+                padding: 2vw 0 0 0;
+            }
+
+            header #breakfast {
+                display: none;
+            }
+
+            header #breakfastBig {
+                display: block;
+                margin: 0 auto;
+                text-align: center !important;
+                max-width: 23%;
+                padding: 2vw 0 0 0;
+            }
+
+            header #see {
+                display: block;
+                margin: 0 auto;
+                text-align: center !important;
+                max-width: 23%;
+                padding: 1vw 0 0 0;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="popup">
+        <div id="luk">
+            <button>X</button>
+        </div>
+        <div id="indhold"></div>
+    </div>
+    <header>
+        <div class="splash">
+            <img id="logo" src="img/Vitas_Diner.png" alt="logo">
+            <img id="open" src="img/open.png" alt="logo">
+            <img id="breakfast" src="img/breakfastMobile.png" alt="breakfast hours">
+            <img id="breakfastBig" src="img/breakfast.png" alt="breakfast hours">
+            <a href="#list"><img src="img/seeMenu.png" id="see" alt="logo"></a>
+            <div class="nav-toggle">
+                <div class="nav-toggle-bar"></div>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li class="filter valgt" data-hold="alle" href=".liste">Menu</li>
+                    <li class="filter" data-hold="forretter">Starters</li>
+                    <li class="filter" data-hold="breakfast">Breakfast</li>
+                    <li class="filter" data-hold="omelets">Omelets</li>
+                    <a href="#list">
+                        <li class="filter" data-hold="salads">salats & sandwich</li>
+                    </a>
+                    <li class="filter" data-hold="burger">Bruger</li>
+                    <li class="filter" data-hold="steaks">Steaks</li>
+                    <li class="filter" data-hold="classic">Classics</li>
+                    <li class="filter" data-hold="drinks">Beverages</li>
+                </ul>
+
+            </nav>
+
+        </div>
+    </header>
+
+    <a name="list">
+        <h3>Menu</h3>
+    </a>
+
+    <div class="liste"></div>
+
+
+
+    </script>
+</body>
+
+</html>
