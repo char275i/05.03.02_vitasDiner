@@ -76,8 +76,9 @@
         }
 
         #leftPris {
-            float: right;
-            margin-right: 1em;
+            float: none;
+            margin-right: 1rem;
+            text-align: right;
         }
 
         a {
@@ -185,6 +186,8 @@
             padding: 0.5rem 1rem;
             border: 5px double #e81d21;
             margin: 1rem;
+            background-color: transparent;
+
 
         }
 
@@ -480,15 +483,16 @@
         }
 
         .value-button {
-            display: inline-block;
-            border: 1px solid #ddd;
-            margin: 0px;
-            width: 40px;
-            height: 20px;
+            border: 1px solid #312a09;
             text-align: center;
-            vertical-align: middle;
-            padding: 11px 0;
-            background: #FFF;
+            background: none;
+            padding: 0.5rem;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 4px;
+            border-radius: 50% !important;
             -webkit-touch-callout: none;
             -webkit-user-select: none;
             -khtml-user-select: none;
@@ -520,8 +524,9 @@
             text-align: center;
             border: none;
             margin: 0px;
-            width: 40px;
-            height: 40px;
+            width: 2rem;
+            height: 2rem;
+            background-color: transparent;
         }
 
         input[type=number]::-webkit-inner-spin-button,
@@ -529,6 +534,13 @@
             -webkit-appearance: none;
             margin: 0;
         }
+
+        form {
+            text-align: right !important;
+            float: right;
+            margin-right: 1rem;
+        }
+
     </style>
 </head>
 
@@ -538,7 +550,6 @@
             <button>X</button>
         </div>
         <div id="indhold"></div>
-        <button id="buttonOrder">ORDER NOW</button>
     </div>
     <header>
         <div class="splash">
@@ -588,6 +599,7 @@
             value--;
             document.getElementById('number').value = value;
         }
+
     </script>
     <script>
         (function() {
@@ -611,6 +623,7 @@
             });
 
         }());
+
     </script>
     <script>
         let alleRetter = [];
@@ -646,6 +659,13 @@
                         <h2>${ret.navn}</h2>
                         <p>${ret.kort}</p>
                         <p id="leftPris">$ ${ret.pris}</p>
+                        <div id="align"><button id="buttonOrder">ORDER NOW</button>
+                            <form>
+                              <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
+                              <input type="number" id="number" value="0" />
+                              <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+                            </form>
+                        </div>
                     </article>`;
 
                     dest.insertAdjacentHTML("beforeend", template);
@@ -658,12 +678,13 @@
                             <hr id=hr1><hr id=hr2><h2>${ret.navn}</h2><hr id=hr3><hr id=hr4>
                             <p id="leftPris">$ ${ret.pris}</p>
                             <p>${ret.lang}</p>
-                            <button id="buttonOrder">ORDER NOW</button>
+                            <div id="align"><button id="buttonOrder">ORDER NOW</button>
                             <form>
                               <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
                               <input type="number" id="number" value="0" />
                               <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
                             </form>
+                            </div>
                         </article>`;
                         document.querySelector("#popup").style.display = "block";
                         document.querySelector("#popup #luk").addEventListener("click", close);
@@ -693,6 +714,7 @@
             start();
         }
         start();
+
     </script>
 </body>
 
