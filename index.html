@@ -425,8 +425,107 @@
     </a>
 
     <div class="liste"></div>
+    <script>
+        (function() {
+
+            var hamburger = {
+                navToggle: document.querySelector('.nav-toggle'),
+                nav: document.querySelector('nav'),
+
+                doToggle: function(e) {
+                    e.preventDefault();
+                    this.navToggle.classList.toggle('expanded');
+                    this.nav.classList.toggle('expanded');
+                }
+            };
+
+            hamburger.navToggle.addEventListener('click', function(e) {
+                hamburger.doToggle(e);
+            });
+            hamburger.nav.addEventListener('click', function(e) {
+                hamburger.doToggle(e);
+            });
+
+        }());
+
+    </script>
+    <script>
+        let alleRetter = [];
+        let filter = "alle";
+        const dest = document.querySelector(".liste");
+
+        //Hent JSON-fil i asynkron function
+        async function hentJson() {
+            //henter datafilen
+            let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1jfYoWkp553C6HQaqXSlAPeqDdSJncqbo7v_rGgCkr7o");
+            console.log(jsonData);
+            // den hentede data skal tolkes som JSON
+            alleRetter = await jsonData.json();
+            console.log(alleRetter);
 
 
+            //kald funktion der viser data i DOM
+            start();
+
+        }
+
+        document.addEventListener("DOMContentLoaded", hentJson);
+
+        function start() {
+            dest.innerHTML = "";
+            alleRetter.forEach(ret => {
+
+                if (filter == "alle" || filter == ret.kategori) {
+                    let template =
+                        //Placer ret i html
+                        `<div class="retter">
+                 <img src="imgs/small/${ret.billede}-sm.jpg" alt ="${ret.navn}">
+<h2><hr>${ret.navn}</h2><hr>
+<p>${ret.kort}</p>
+<p id="leftPris">$ ${ret.pris}</p>`;
+
+                    dest.insertAdjacentHTML("beforeend", template);
+                    dest.lastElementChild.addEventListener("click", () => {
+                        visSingle(ret);
+                    });
+
+                    function visSingle(ret) {
+                        document.querySelector("#indhold").innerHTML =
+                            `<div class = "retter">
+                            <div class = "ret">
+<img class = "billede" src ="imgs/large/${ret.billede}.jpg" alt = "${ret.navn}">
+<h2>${ret.navn}</h2>
+<p id="leftPris">$ ${ret.pris}</p>
+<p>${ret.lang}</p>
+                            </div>`;
+                        document.querySelector("#popup").style.display = "block";
+                        document.querySelector("#popup #luk").addEventListener("click", close);
+                    }
+
+                    function close() {
+                        document.querySelector("#popup").style.display = "none";
+                    }
+                }
+            });
+
+        }
+
+
+        document.querySelectorAll(".filter").forEach(elm => {
+            elm.addEventListener("click", filtrering);
+
+        })
+
+        function filtrering() {
+            filter = this.getAttribute("data-hold");
+            document.querySelector("h3").textContent = this.textContent;
+            document.querySelectorAll(".filter").forEach(elm => {
+                elm.classList.remove("valgt");
+            });
+            this.classList.add("valgt");
+            start();
+        }
+        start();
 
     </script>
 </body>
