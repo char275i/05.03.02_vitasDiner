@@ -38,16 +38,19 @@
             border-style: none none dotted;
 
         }
+
         #hr2 {
             border: 2px solid #312a09;
             margin-top: -5px;
             margin-bottom: -5px;
         }
+
         #hr3 {
             border: 2px solid #312a09;
             margin-top: -5px;
             margin-bottom: -5px;
         }
+
         #hr4 {
             border: 3px dotted #312a09;
             border-style: none none dotted;
@@ -177,19 +180,27 @@
             background-color: #fdf6d5;
             z-index: 1;
         }
-        #buttonOrder{
+
+        #buttonOrder {
             padding: 0.5rem 1rem;
             border: 5px double #e81d21;
             margin: 1rem;
 
         }
+
         @media screen and (max-width: 576px) {
-            #hr1, #hr2, #hr3, #hr4 {
+
+            #hr1,
+            #hr2,
+            #hr3,
+            #hr4 {
                 max-width: 70%;
             }
-            h2{
+
+            h2 {
                 font-size: 18px;
             }
+
             header #breakfastBig {
                 display: none;
             }
@@ -216,12 +227,17 @@
         }
 
         @media screen and (min-width: 420px) {
-            h2{
+            h2 {
                 font-size: 18px;
             }
-            #hr1, #hr2, #hr3, #hr4 {
+
+            #hr1,
+            #hr2,
+            #hr3,
+            #hr4 {
                 max-width: 55%;
             }
+
             header #logo {
                 display: block;
                 margin: 0 auto;
@@ -260,12 +276,17 @@
         }
 
         @media screen and (min-width: 576px) {
-            h2{
+            h2 {
                 font-size: 18px;
             }
-            #hr1, #hr2, #hr3, #hr4 {
+
+            #hr1,
+            #hr2,
+            #hr3,
+            #hr4 {
                 max-width: 35%;
             }
+
             .liste {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -309,9 +330,14 @@
 
 
         @media only screen and (min-width: 768px) {
-            #hr1, #hr2, #hr3, #hr4 {
+
+            #hr1,
+            #hr2,
+            #hr3,
+            #hr4 {
                 max-width: 25%;
             }
+
             header #logo {
                 display: block;
                 margin: 0 auto;
@@ -350,9 +376,14 @@
         }
 
         @media only screen and (min-width: 992px) {
-            #hr1, #hr2, #hr3, #hr4 {
+
+            #hr1,
+            #hr2,
+            #hr3,
+            #hr4 {
                 max-width: 30%;
             }
+
             header #logo {
                 display: block;
                 margin: 0 auto;
@@ -391,9 +422,14 @@
         }
 
         @media only screen and (min-width: 1024px) {
-            #hr1, #hr2, #hr3, #hr4 {
+
+            #hr1,
+            #hr2,
+            #hr3,
+            #hr4 {
                 max-width: 20%;
             }
+
             .liste {
                 grid-template-columns: repeat(3, 1fr);
             }
@@ -437,6 +473,62 @@
                 padding: 1vw 0 0 0;
             }
         }
+
+        form {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .value-button {
+            display: inline-block;
+            border: 1px solid #ddd;
+            margin: 0px;
+            width: 40px;
+            height: 20px;
+            text-align: center;
+            vertical-align: middle;
+            padding: 11px 0;
+            background: #FFF;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .value-button:hover {
+            cursor: pointer;
+        }
+
+        form #decrease {
+            margin-right: -4px;
+            border-radius: 8px 0 0 8px;
+        }
+
+        form #increase {
+            margin-left: -4px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        form #input-wrap {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        input#number {
+            text-align: center;
+            border: none;
+            margin: 0px;
+            width: 40px;
+            height: 40px;
+        }
+
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
     </style>
 </head>
 
@@ -454,7 +546,7 @@
             <img id="open" src="img/open.png" alt="logo">
             <img id="breakfast" src="img/breakfastMobile.png" alt="breakfast hours">
             <img id="breakfastBig" src="img/breakfast.png" alt="breakfast hours">
-            <a href="#list"><img id="see"  src="img/seeMenu.png" alt="logo"></a>
+            <a href="#list"><img id="see" src="img/seeMenu.png" alt="logo"></a>
             <div class="nav-toggle">
                 <div class="nav-toggle-bar"></div>
             </div>
@@ -477,10 +569,26 @@
     </header>
 
     <section id="list">
-            <h3>Menu</h3>
+        <h3>Menu</h3>
 
         <div class="liste"></div>
     </section>
+    <script>
+        function increaseValue() {
+            var value = parseInt(document.getElementById('number').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value++;
+            document.getElementById('number').value = value;
+        }
+
+        function decreaseValue() {
+            var value = parseInt(document.getElementById('number').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value < 1 ? value = 1 : '';
+            value--;
+            document.getElementById('number').value = value;
+        }
+    </script>
     <script>
         (function() {
 
@@ -534,11 +642,11 @@
                     let template =
                         //Placer ret i html
                         `<article class="retter">
-                 <img src="imgs/small/${ret.billede}-sm.jpg" alt ="${ret.navn}">
-                    <h2>${ret.navn}</h2>
-                    <p>${ret.kort}</p>
-                    <p id="leftPris">$ ${ret.pris}</p>
-                        </article>`;
+                        <img src="imgs/small/${ret.billede}-sm.jpg" alt ="${ret.navn}">
+                        <h2>${ret.navn}</h2>
+                        <p>${ret.kort}</p>
+                        <p id="leftPris">$ ${ret.pris}</p>
+                    </article>`;
 
                     dest.insertAdjacentHTML("beforeend", template);
                     dest.lastElementChild.addEventListener("click", visSingle);
@@ -546,12 +654,17 @@
                     function visSingle() {
                         document.querySelector("#indhold").innerHTML =
                             `<article class="retter" id="ret">
-<img class = "billede" src ="imgs/large/${ret.billede}.jpg" alt = "${ret.navn}">
-<hr id=hr1><hr id=hr2><h2>${ret.navn}</h2><hr id=hr3><hr id=hr4>
-<p id="leftPris">$ ${ret.pris}</p>
-<p>${ret.lang}</p>
-<button id="buttonOrder">ORDER NOW</button>
-                            </article>`;
+                            <img class = "billede" src ="imgs/large/${ret.billede}.jpg" alt = "${ret.navn}">
+                            <hr id=hr1><hr id=hr2><h2>${ret.navn}</h2><hr id=hr3><hr id=hr4>
+                            <p id="leftPris">$ ${ret.pris}</p>
+                            <p>${ret.lang}</p>
+                            <button id="buttonOrder">ORDER NOW</button>
+                            <form>
+                              <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
+                              <input type="number" id="number" value="0" />
+                              <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+                            </form>
+                        </article>`;
                         document.querySelector("#popup").style.display = "block";
                         document.querySelector("#popup #luk").addEventListener("click", close);
                     }
