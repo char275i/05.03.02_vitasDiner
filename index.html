@@ -32,9 +32,11 @@
             width: 100%;
             border: 2px solid transparent;
         }
+
         hr {
             max-width: 50%;
-            color: 2 px solid black;
+            border: 3px dotted #ff0000;
+            border-style: none none dotted;
         }
 
         h1 {
@@ -129,13 +131,13 @@
         #luk {
             position: fixed;
             margin-top: 2rem;
-            right: 17rem;
             padding-right: 2rem;
         }
 
         #luk button {
             font-size: 2rem;
-            padding: 1rem 2rem;
+            position: fixed;
+            right: 20%;
         }
 
         .retter {
@@ -149,7 +151,7 @@
             background-color: #ffeead;
         }
 
-        .ret {
+        #ret {
             border: 5px double #e81d21;
             padding: 0em;
             transition: ease-in 2s;
@@ -158,23 +160,22 @@
             max-height: 500px;
             overflow: auto;
             background-color: #fdf6d5;
-        }
-
-        @media only screen and (min-width: 500px) {
-            .liste {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media only screen and (min-width: 800px) {
-            .liste {
-                grid-template-columns: repeat(3, 1fr);
-            }
+            z-index: 1;
         }
 
         @media (max-width: 576px) {
             header #breakfastBig {
                 display: none;
+            }
+
+            .retter {
+                width: 88%;
+            }
+
+            #ret {
+                border: 5px double #e81d21;
+                margin: 0em;
+                width: 100%;
             }
 
             .nav-toggle {
@@ -230,6 +231,10 @@
         }
 
         @media (min-width: 576px) {
+            .liste {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             header #logo {
                 display: block;
                 margin: 0 auto;
@@ -269,6 +274,7 @@
 
 
         @media only screen and (min-width: 768px) {
+
             header #logo {
                 display: block;
                 margin: 0 auto;
@@ -344,6 +350,11 @@
             }
         }
 
+        @media only screen and (min-width: 1024px) {
+            .liste {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
 
 
         @media only screen and (min-width: 1200px) {
@@ -383,7 +394,6 @@
                 padding: 1vw 0 0 0;
             }
         }
-
     </style>
 </head>
 
@@ -400,7 +410,7 @@
             <img id="open" src="img/open.png" alt="logo">
             <img id="breakfast" src="img/breakfastMobile.png" alt="breakfast hours">
             <img id="breakfastBig" src="img/breakfast.png" alt="breakfast hours">
-            <a href="#list"><img src="img/seeMenu.png" id="see" alt="logo"></a>
+            <a href="#list"><img id="see"  src="img/seeMenu.png" alt="logo"></a>
             <div class="nav-toggle">
                 <div class="nav-toggle-bar"></div>
             </div>
@@ -410,9 +420,7 @@
                     <li class="filter" data-hold="forretter">Starters</li>
                     <li class="filter" data-hold="breakfast">Breakfast</li>
                     <li class="filter" data-hold="omelets">Omelets</li>
-                    <a href="#list">
-                        <li class="filter" data-hold="salads">salats & sandwich</li>
-                    </a>
+                    <li class="filter" data-hold="salads">salats & sandwich</li>
                     <li class="filter" data-hold="burger">Bruger</li>
                     <li class="filter" data-hold="steaks">Steaks</li>
                     <li class="filter" data-hold="classic">Classics</li>
@@ -424,11 +432,11 @@
         </div>
     </header>
 
-    <a name="list">
-        <h3>Menu</h3>
-    </a>
+    <section id="list">
+            <h3>Menu</h3>
 
-    <div class="liste"></div>
+        <div class="liste"></div>
+    </section>
     <script>
         (function() {
 
@@ -451,7 +459,6 @@
             });
 
         }());
-
     </script>
     <script>
         let alleRetter = [];
@@ -482,26 +489,24 @@
                 if (filter == "alle" || filter == ret.kategori) {
                     let template =
                         //Placer ret i html
-                        `<div class="retter">
+                        `<article class="retter">
                  <img src="imgs/small/${ret.billede}-sm.jpg" alt ="${ret.navn}">
-<h2><hr>${ret.navn}</h2><hr>
-<p>${ret.kort}</p>
-<p id="leftPris">$ ${ret.pris}</p>`;
+                    <h2>${ret.navn}</h2>
+                    <p>${ret.kort}</p>
+                    <p id="leftPris">$ ${ret.pris}</p>
+                        </article>`;
 
                     dest.insertAdjacentHTML("beforeend", template);
-                    dest.lastElementChild.addEventListener("click", () => {
-                        visSingle(ret);
-                    });
+                    dest.lastElementChild.addEventListener("click", visSingle);
 
-                    function visSingle(ret) {
+                    function visSingle() {
                         document.querySelector("#indhold").innerHTML =
-                            `<div class = "retter">
-                            <div class = "ret">
+                            `<article class="retter" id="ret">
 <img class = "billede" src ="imgs/large/${ret.billede}.jpg" alt = "${ret.navn}">
-<h2>${ret.navn}</h2>
+<hr><h2>${ret.navn}</h2><hr>
 <p id="leftPris">$ ${ret.pris}</p>
 <p>${ret.lang}</p>
-                            </div>`;
+                            </article>`;
                         document.querySelector("#popup").style.display = "block";
                         document.querySelector("#popup #luk").addEventListener("click", close);
                     }
@@ -530,7 +535,6 @@
             start();
         }
         start();
-
     </script>
 </body>
 
