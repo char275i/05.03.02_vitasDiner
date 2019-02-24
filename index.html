@@ -61,7 +61,7 @@
         h1 {
             text-align: center;
             margin-top: 0;
-            padding-top: 75px;
+            padding-top: 1rem;
         }
 
         h2 {
@@ -85,6 +85,10 @@
             grid-row: 3;
             text-align: left;
             margin-left: 0.5em;
+        }
+        p.center{
+            text-align: center;
+            font-size: 1.5rem;
         }
 
         #leftPris {
@@ -276,6 +280,19 @@
         input[type=number]::-webkit-outer-spin-button {
             -webkit-appearance: none;
             margin: 0;
+        }
+
+        footer section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+
+            padding: 10px;
+            text-align: center;
+        }
+
+        footer {
+            background: #e81d21;
+            color: #312C14;
         }
 
         @media screen and (max-width: 576px) {
@@ -572,6 +589,10 @@
                 padding: 1vw 0 0 0;
             }
         }
+
+        li a {
+            display: block;
+        }
     </style>
 </head>
 
@@ -594,11 +615,11 @@
             </div>
             <nav class="nav">
                 <ul>
-                    <li class="filter valgt" data-hold="alle" href=".liste">Menu</li>
-                    <li class="filter" data-hold="forretter">Starters</li>
-                    <li class="filter" data-hold="breakfast">Breakfast</li>
-                    <li class="filter" data-hold="omelets">Omelets</li>
-                    <li class="filter" data-hold="salads">salats & sandwich</li>
+                    <a href="#anchor" onclick="goToAnchor('anchor')" class="filter valgt" data-hold="alle">Menu</a>
+                    <li class="filter" data-hold="forretter"><a href="#anchor" onclick="goToAnchor('anchor')">Starters</a></li>
+                    <li class="filter" data-hold="breakfast"><a href="#anchor" onclick="goToAnchor('anchor')">Breakfast</a></li>
+                    <li class="filter" data-hold="omelets" onclick="navigateTo #anchor">Omelets</li>
+                    <li class="filter" data-hold="salads"><a href="#anchor">salats & sandwich</a></li>
                     <li class="filter" data-hold="burgers">Bruger</li>
                     <li class="filter" data-hold="steaks">Steaks</li>
                     <li class="filter" data-hold="classic">Classics</li>
@@ -611,10 +632,36 @@
     </header>
 
     <section id="list">
-        <h3>Menu</h3>
+        <h3 id="anchor">Menu</h3>
 
         <div class="liste"></div>
     </section>
+    <footer>
+        <section>
+            <adress>
+                <h1>Adress:</h1> <br>
+                <p class="center">6801 Abercorn Street</p> <br>
+                <p class="center">Savannah</p> <br>
+                <p class="center">GA 31405</p>
+            </adress>
+            <hours>
+                <h1>Opening hours</h1> <br>
+                <p class="center">Monday - Sunday</p><br>
+                <h1>24/7</h1>
+            </hours>
+            <location>
+                <div style="overflow:hidden;width: 300px;position: relative;"><iframe width="300" height="300" src="https://maps.google.com/maps?width=300&amp;height=300&amp;hl=en&amp;q=6801%20Abercorn%20Street+(Dennys)&amp;ie=UTF8&amp;t=&amp;z=11&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                    <div style="position: absolute;width: 80%;bottom: 10px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;"><small style="line-height: 1.8;font-size: 2px;background: #fff;">Powered by <a href="https://embedgooglemaps.com/fr/">https://embedgooglemaps.com/fr/</a> & <a href="http://phplinkdir.com">www://phplinkdir.com</a></small></div>
+                    <style>
+                        #gmap_canvas img {
+                            max-width: none !important;
+                            background: none !important
+                        }
+                    </style>
+                </div><br />
+            </location>
+        </section>
+    </footer>
     <script>
         function increaseValue() {
             var value = parseInt(document.getElementById('number').value, 10);
@@ -743,6 +790,43 @@
             start();
         }
         start();
+    </script>
+    <script>
+        // Select all links with hashes
+        $('a[href*="#"]')
+            // Remove links that don't actually link to anything
+            .not('[href="#"]')
+            .not('[href="#0"]')
+            .click(function(event) {
+                // On-page links
+                if (
+                    location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
+                    location.hostname == this.hostname
+                ) {
+                    // Figure out element to scroll to
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    // Does a scroll target exist?
+                    if (target.length) {
+                        // Only prevent default if animation is actually gonna happen
+                        event.preventDefault();
+                        $('html, body').animate({
+                            scrollTop: target.offset().top
+                        }, 1000, function() {
+                            // Callback after animation
+                            // Must change focus!
+                            var $target = $(target);
+                            $target.focus();
+                            if ($target.is(":focus")) { // Checking if the target was focused
+                                return false;
+                            } else {
+                                $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                                $target.focus(); // Set focus again
+                            };
+                        });
+                    }
+                }
+            });
     </script>
 </body>
 
