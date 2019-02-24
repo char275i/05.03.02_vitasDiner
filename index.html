@@ -62,6 +62,7 @@
             text-align: center;
             margin-top: 0;
             padding-top: 1rem;
+            text-decoration: underline;
         }
 
         h2 {
@@ -101,7 +102,55 @@
             margin-right: 1rem;
             text-align: right;
         }
-
+        .add {
+            grid-column: 1 / span 2;
+            grid-row: 6 ;
+            float: none;
+            margin-right: 1rem;
+            text-align: lef;
+        }
+        .add1{
+            grid-column: 1 / span 2;
+            grid-row: 7 ;
+            float: none;
+            margin-right: 1rem;
+            text-align: lef;
+        }
+        .add2{
+            grid-column: 1 / span 2;
+            grid-row: 8 ;
+            float: none;
+            margin-right: 1rem;
+            text-align: lef;
+        }
+        .add3 {
+            grid-column: 1 / span 2;
+            grid-row: 9 ;
+            float: none;
+            margin-right: 1rem;
+            text-align: lef;
+        }
+        .ekstra{
+            grid-column: 1 / span 2;
+            grid-row: 10 ;
+            float: none;
+            margin-right: 1rem;
+            text-align: lef;
+        }
+        .ekstra1{
+            grid-column: 1 / span 2;
+            grid-row: 11 ;
+            float: none;
+            margin-right: 1rem;
+            text-align: lef;
+        }
+        .ekstra2{
+            grid-column: 1 / span 2;
+            grid-row: 12 ;
+            float: none;
+            margin-right: 1rem;
+            text-align: lef;
+        }
         a {
             text-align: center;
         }
@@ -165,6 +214,8 @@
             padding: 5px;
             transition: ease-in 2s;
             margin: 0 auto;
+            padding: 2px;
+            border: 2px solid black;
         }
 
         #luk {
@@ -196,7 +247,7 @@
         #ret {
             display: grid;
             grid-gap: 1px;
-            border: 5px double #e81d21;
+            border: 8px double #e81d21;
             padding: 0em;
             transition: ease-in 2s;
             margin: 1em;
@@ -205,6 +256,12 @@
             overflow: auto;
             background-color: #fdf6d5;
             z-index: 1;
+        }
+
+        article #ret {
+            padding: 5px;
+            background: none;
+            border: 2px solid black;
         }
 
         #buttonOrder {
@@ -296,6 +353,22 @@
         footer {
             background: #e81d21;
             color: #312C14;
+            border: 15px double #fdf6d5;
+        }
+
+        location {
+            text-align: center;
+            margin: 0 auto;
+
+        }
+
+        adress {
+            display: block;
+        }
+
+        article {
+            padding: 5px;
+            border: 2px solid black;
         }
 
         @media screen and (max-width: 576px) {
@@ -445,6 +518,18 @@
                 max-width: 40%;
                 padding: 2vw 0 0 0;
             }
+
+            footer section {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                padding: 10px;
+                text-align: center;
+            }
+
+            location {
+                max-width: 140px;
+
+            }
         }
 
 
@@ -491,6 +576,18 @@
                 text-align: center !important;
                 max-width: 23%;
                 padding: 1vw 0 0 0;
+            }
+
+            footer section {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                padding: 10px;
+                text-align: center;
+            }
+
+            location {
+                max-width: 190px;
+
             }
         }
 
@@ -552,6 +649,19 @@
             .liste {
                 grid-template-columns: repeat(3, 1fr);
             }
+
+            footer section {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+                padding: 10px;
+                text-align: center;
+            }
+
+            location {
+                max-width: 280px;
+
+            }
         }
 
 
@@ -590,6 +700,19 @@
                 text-align: center !important;
                 max-width: 23%;
                 padding: 1vw 0 0 0;
+            }
+
+            footer section {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+
+                padding: 10px;
+                text-align: center;
+            }
+
+            location {
+                max-width: 380px;
+
             }
         }
 
@@ -705,35 +828,25 @@
         }());
     </script>
     <script>
+        document.addEventListener("DOMContentLoaded", start);
         let alleRetter = [];
         let filter = "alle";
         const dest = document.querySelector(".liste");
-
-        //Hent JSON-fil i asynkron function
-        async function hentJson() {
-            //henter datafilen
-            let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1jfYoWkp553C6HQaqXSlAPeqDdSJncqbo7v_rGgCkr7o");
-            console.log(jsonData);
-            // den hentede data skal tolkes som JSON
-            alleRetter = await jsonData.json();
-            console.log(alleRetter);
-
-
-            //kald funktion der viser data i DOM
-            start();
-
+        async function start() {
+            const myJson = await fetch("dinerTime1.json");
+            alleRetter = await myJson.json();
+            alleRetter.sort((a, b) => {
+                return a.navn.localeCompare(b.navn)
+            });
+            visRet();
         }
-
-        document.addEventListener("DOMContentLoaded", hentJson);
-
-        function start() {
+        //        document.addEventListener("DOMContentLoaded", start);
+        function visRet() {
             dest.innerHTML = "";
             alleRetter.forEach(ret => {
-
                 if (filter == "alle" || filter == ret.kategori) {
-                    let template =
-                        //Placer ret i html
-                        `<article class="retter">
+                    let template = `
+                    <article class="retter">
                         <img src="imgs/small/${ret.billede}-sm.jpg" alt ="${ret.navn}">
                         <h2>${ret.navn}</h2>
                         <p>${ret.kort}</p>
@@ -746,13 +859,14 @@
                             </form>
                         </div>
                     </article>`;
-
                     dest.insertAdjacentHTML("beforeend", template);
-                    dest.lastElementChild.addEventListener("click", visSingle);
+                    dest.lastElementChild.addEventListener("click", () => {
+                        visSingle(ret)
+                    });
 
-                    function visSingle() {
-                        document.querySelector("#indhold").innerHTML =
-                            `<article class="retter" id="ret">
+                    function visSingle(ret) {
+                        document.querySelector("#indhold").innerHTML = `
+                    <article class="retter" id="ret">
                             <img class = "billede" src ="imgs/large/${ret.billede}.jpg" alt = "${ret.navn}">
                             <div id="combineH2Hr"><hr id=hr1><hr id=hr2><h2>${ret.navn}</h2><hr id=hr3><hr id=hr4></div>
                             <p id="leftPris">$ ${ret.pris}</p>
@@ -764,6 +878,7 @@
                                 <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
                             </form>
                             </div>
+<p class="add"><input type="checkbox"> ${ret.add}</p><p class="add1"><input type="checkbox"> ${ret.add1}</p><p class="add2"><input type="checkbox"> ${ret.add2}</p><p class="add3"><input type="checkbox"> ${ret.add3}</p><p class="ekstra"><input type="checkbox"> ${ret.ekstra}</p><p class="ekstra1"><input type="checkbox"> ${ret.ekstra1}</p><p class="ekstra2"><input type="checkbox"> ${ret.ekstra2}</p>
                         </article>`;
                         document.querySelector("#popup").style.display = "block";
                         document.querySelector("#popup #luk").addEventListener("click", close);
@@ -773,14 +888,10 @@
                         document.querySelector("#popup").style.display = "none";
                     }
                 }
-            });
-
+            })
         }
-
-
         document.querySelectorAll(".filter").forEach(elm => {
             elm.addEventListener("click", filtrering);
-
         })
 
         function filtrering() {
@@ -788,48 +899,11 @@
             document.querySelector("h3").textContent = this.textContent;
             document.querySelectorAll(".filter").forEach(elm => {
                 elm.classList.remove("valgt");
-            });
+            })
             this.classList.add("valgt");
-            start();
+            visRet();
         }
         start();
-    </script>
-    <script>
-        // Select all links with hashes
-        $('a[href*="#"]')
-            // Remove links that don't actually link to anything
-            .not('[href="#"]')
-            .not('[href="#0"]')
-            .click(function(event) {
-                // On-page links
-                if (
-                    location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
-                    location.hostname == this.hostname
-                ) {
-                    // Figure out element to scroll to
-                    var target = $(this.hash);
-                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                    // Does a scroll target exist?
-                    if (target.length) {
-                        // Only prevent default if animation is actually gonna happen
-                        event.preventDefault();
-                        $('html, body').animate({
-                            scrollTop: target.offset().top
-                        }, 1000, function() {
-                            // Callback after animation
-                            // Must change focus!
-                            var $target = $(target);
-                            $target.focus();
-                            if ($target.is(":focus")) { // Checking if the target was focused
-                                return false;
-                            } else {
-                                $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
-                                $target.focus(); // Set focus again
-                            };
-                        });
-                    }
-                }
-            });
     </script>
 </body>
 
