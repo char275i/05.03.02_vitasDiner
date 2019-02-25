@@ -1,0 +1,377 @@
+ @media screen and (max-width: 576px) {
+
+     #hr1,
+     #hr2,
+     #hr3,
+     #hr4 {
+         max-width: 70%;
+     }
+
+     h2 {
+         font-size: 18px;
+     }
+
+     header #breakfastBig {
+         display: none;
+     }
+
+     .retter {
+         width: 88%;
+     }
+
+     #ret {
+         display: grid;
+         grid-gap: 10px;
+         padding: 1px;
+         border: 5px double #e81d21;
+         margin: 0em;
+         width: 100%;
+     }
+
+     form {
+         text-align: right !important;
+         float: right;
+         margin-right: 1rem;
+     }
+
+     .value-button {
+         border: 1px solid #312a09;
+         text-align: center;
+         background: none;
+         padding: 0.3rem;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 10px;
+         margin: 1px 1px;
+     }
+
+     form {
+         text-align: right !important;
+         float: right;
+         margin-right: 0.2rem;
+         padding: 0.3rem;
+     }
+
+     #buttonOrder {
+         grid-column: 1;
+         grid-row: 5;
+         padding: 0.2rem 0.1rem;
+         border: 5px double #e81d21;
+         margin: 0.4rem;
+         background-color: transparent;
+     }
+
+     .nav-toggle {
+         cursor: pointer;
+         height: 1.5rem;
+         left: 1rem;
+         top: 1rem;
+         width: 2rem;
+     }
+ }
+
+ @media screen and (min-width: 420px) {
+     h2 {
+         font-size: 18px;
+     }
+
+     #hr1,
+     #hr2,
+     #hr3,
+     #hr4 {
+         max-width: 55%;
+     }
+
+     header #logo {
+         display: block;
+         margin: 0 auto;
+         padding: 6vw 0 0 0;
+         text-align: center !important;
+         max-width: 50%;
+     }
+
+     header #open {
+         display: block;
+         margin: 0 auto;
+         text-align: center !important;
+         max-width: 60%;
+         padding: 3vw 0 0 0;
+     }
+
+     header #breakfast {
+         display: none;
+     }
+
+     header #breakfastBig {
+         display: block;
+         margin: 0 auto;
+         text-align: center !important;
+         max-width: 55%;
+         padding: 2vw 0 0 0;
+     }
+
+     header #see {
+         display: block;
+         margin: 0 auto;
+         text-align: center !important;
+         max-width: 55%;
+         padding: 2vw 0 0 0;
+     }
+
+     #buttonOrder {
+         grid-column: 1;
+         grid-row: 5;
+         padding: 0.2rem;
+         border: 5px double #e81d21;
+         margin: 0.4rem;
+         background-color: transparent;
+     }
+
+     form {
+         grid-column: 2;
+         grid-row: 5;
+         text-align: right !important;
+         float: right;
+         margin: 0.4rem;
+         padding: 0.2rem;
+     }
+
+     .value-button {
+         border: 1px solid #312a09;
+         text-align: center;
+         background: none;
+         padding: 0.2rem;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 16px;
+     }
+
+
+     footer section {}
+
+     location {}
+ }
+
+ @media screen and (min-width: 576px) {
+     h2 {
+         font-size: 18px;
+     }
+
+     #hr1,
+     #hr2,
+     #hr3,
+     #hr4 {
+         max-width: 35%;
+     }
+
+     .liste {
+         grid-template-columns: repeat(2, 1fr);
+     }
+
+     header #logo {
+         display: block;
+         margin: 0 auto;
+         padding: 4vw 0 0 0;
+         text-align: center !important;
+         max-width: 40%;
+     }
+
+     header #open {
+         display: block;
+         margin: 0 auto;
+         text-align: center !important;
+         max-width: 45%;
+         padding: 3vw 0 0 0;
+     }
+
+     header #breakfast {
+         display: none;
+     }
+
+     header #breakfastBig {
+         display: block;
+         margin: 0 auto;
+         text-align: center !important;
+         max-width: 40%;
+         padding: 2vw 0 0 0;
+     }
+
+     header #see {
+         display: block;
+         margin: 0 auto;
+         text-align: center !important;
+         max-width: 40%;
+         padding: 2vw 0 0 0;
+     }
+
+     footer section {}
+
+     location {}
+ }
+
+
+ @media only screen and (min-width: 768px) {
+
+     #hr1,
+     #hr2,
+     #hr3,
+     #hr4 {
+         max-width: 25%;
+     }
+
+     header #logo {
+         display: block;
+         margin: 0 auto;
+         padding: 3vw 0 0 0;
+         text-align: center !important;
+         max-width: 30%;
+     }
+
+     header #open {
+         display: block;
+         margin: 0 auto;
+         text-align: center !important;
+         max-width: 40%;
+         padding: 2vw 0 0 0;
+     }
+
+     header #breakfast {
+         display: none;
+     }
+
+     header #breakfastBig {
+         display: block;
+         margin: 0 auto;
+         text-align: center !important;
+         max-width: 33%;
+         padding: 2vw 0 0 0;
+     }
+
+     header #see {
+         display: block;
+         margin: 0 auto;
+         text-align: center !important;
+         max-width: 23%;
+         padding: 1vw 0 0 0;
+     }
+
+     footer section {}
+
+     location {}
+ }
+
+ @media only screen and (min-width: 992px) {
+
+     #hr1,
+     #hr2,
+     #hr3,
+     #hr4 {
+         max-width: 30%;
+     }
+
+     header #logo {
+         display: block;
+         margin: 0 auto;
+         padding: 3vw 0 0 0;
+         text-align: center !important;
+         max-width: 25%;
+     }
+
+     header #open {
+         display: block;
+         margin: 0 auto;
+         text-align: center !important;
+         max-width: 33%;
+         padding: 2vw 0 0 0;
+     }
+
+     header #breakfast {
+         display: none;
+     }
+
+     header #breakfastBig {
+         display: block;
+         margin: 0 auto;
+         text-align: center !important;
+         max-width: 23%;
+         padding: 2vw 0 0 0;
+     }
+
+     header #see {
+         display: block;
+         margin: 0 auto;
+         text-align: center !important;
+         max-width: 23%;
+         padding: 1vw 0 0 0;
+     }
+ }
+
+ @media only screen and (min-width: 1024px) {
+
+     #hr1,
+     #hr2,
+     #hr3,
+     #hr4 {
+         max-width: 20%;
+     }
+
+     .liste {
+         grid-template-columns: repeat(3, 1fr);
+     }
+
+     footer section {}
+
+     location {
+         max-width: 280px;
+
+     }
+ }
+
+
+ @media only screen and (min-width: 1200px) {
+     header #logo {
+         display: block;
+         margin: 0 auto;
+         padding: 2vw 0 0 0;
+         text-align: center !important;
+         max-width: 22%;
+     }
+
+     header #open {
+         display: block;
+         margin: 0 auto;
+         text-align: center !important;
+         max-width: 30%;
+         padding: 1vw 0 0 0;
+     }
+
+     header #breakfast {
+         display: none;
+     }
+
+     header #breakfastBig {
+         display: block;
+         margin: 0 auto;
+         text-align: center !important;
+         max-width: 23%;
+         padding: 1vw 0 0 0;
+     }
+
+     header #see {
+         display: block;
+         margin: 0 auto;
+         text-align: center !important;
+         max-width: 23%;
+         padding: 1vw 0 0 0;
+     }
+
+     footer section {}
+
+     location {}
+ }
+
+ li a {
+     display: block;
+ }

@@ -6,728 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vita's Diner</title>
     <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="media.css">
     <style>
-        body {
-            margin: 0;
-            background-color: #F9E582;
-        }
-
-        .menu {
-            text-align: center;
-            margin-top: 2em;
-            margin-bottom: 1em;
-        }
-
-        .valgt {
-            color: #3D5BA9;
-            transition: ease-in 0.6s;
-        }
-
-        .liste {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-        }
-
-        img {
-            grid-column: 1 / span 2;
-            grid-row: 1;
-            width: 100%;
-            border: 2px solid transparent;
-        }
-
-        #hr1 {
-            border: 3px dotted #312a09;
-            border-style: none none dotted;
-
-        }
-
-        #hr2 {
-            border: 2px solid #312a09;
-            margin-top: -5px;
-            margin-bottom: -5px;
-        }
-
-        #hr3 {
-            border: 2px solid #312a09;
-            margin-top: -5px;
-            margin-bottom: -5px;
-        }
-
-        #hr4 {
-            border: 3px dotted #312a09;
-            border-style: none none dotted;
-        }
-
-        h1 {
-            text-align: center;
-            margin-top: 0;
-            padding-top: 1rem;
-            text-decoration: underline;
-        }
-
-        h2 {
-            grid-column: 1 / span 2;
-            grid-row: 2;
-            text-align: center;
-        }
-
-        #combineH2Hr {
-            grid-column: 1 / span 2;
-            grid-row: 2;
-            text-align: center;
-        }
-
-        h3 {
-            text-align: center;
-        }
-
-        p {
-            grid-column: 1 / span 2;
-            grid-row: 3;
-            text-align: left;
-            margin-left: 0.5em;
-        }
-
-        p.center {
-            text-align: center;
-            font-size: 1rem;
-            line-height: 0.1px;
-            font-weight: bold;
-        }
-
-        #leftPris {
-            grid-column: 1 / span 2;
-            grid-row: 4;
-            float: none;
-            margin-right: 1rem;
-            text-align: right;
-        }
-
-        .add {
-            grid-column: 1 / span 2;
-            grid-row: 6;
-            float: none;
-            margin-right: 1rem;
-            text-align: lef;
-        }
-
-        .add1 {
-            grid-column: 1 / span 2;
-            grid-row: 7;
-            float: none;
-            margin-right: 1rem;
-            text-align: lef;
-        }
-
-        .add2 {
-            grid-column: 1 / span 2;
-            grid-row: 8;
-            float: none;
-            margin-right: 1rem;
-            text-align: lef;
-        }
-
-        .add3 {
-            grid-column: 1 / span 2;
-            grid-row: 9;
-            float: none;
-            margin-right: 1rem;
-            text-align: lef;
-        }
-
-        .ekstra {
-            grid-column: 1 / span 2;
-            grid-row: 10;
-            float: none;
-            margin-right: 1rem;
-            text-align: lef;
-        }
-
-        .ekstra1 {
-            grid-column: 1 / span 2;
-            grid-row: 11;
-            float: none;
-            margin-right: 1rem;
-            text-align: lef;
-        }
-
-        .ekstra2 {
-            grid-column: 1 / span 2;
-            grid-row: 12;
-            float: none;
-            margin-right: 1rem;
-            text-align: lef;
-        }
-
-        a {
-            text-align: center;
-        }
-
-        .splash {
-            height: 100vh;
-            width: 100%;
-            background-color: #312C14;
-        }
-
-        #logo {
-            margin-top: 150px;
-        }
-
-        header #logo {
-            display: block;
-            margin: 0 auto;
-            padding: 8vw 0 0 0;
-            text-align: center !important;
-            max-width: 55%;
-        }
-
-        header #open {
-            display: block;
-            margin: 0 auto;
-            text-align: center !important;
-            max-width: 80%;
-            padding: 4vw 0 0 0;
-        }
-
-        header #breakfast {
-            display: block;
-            margin: 0 auto;
-            text-align: center !important;
-            max-width: 60%;
-            padding: 5vw 0 0 0;
-        }
-
-        header #see {
-            display: block;
-            margin: 0 auto;
-            text-align: center !important;
-            max-width: 60%;
-            padding: 5vw 0 0 0;
-        }
-
-        #popup {
-            top: 0;
-            width: 100vw;
-            height: 100vh;
-            position: fixed;
-            display: none;
-            overflow: scroll;
-        }
-
-        #indhold {
-
-            width: 70vw;
-            margin: 1rem auto;
-            background-color: transparent;
-            padding: 5px;
-            transition: ease-in 2s;
-            margin: 0 auto;
-            padding: 2px;
-            border: 2px solid black;
-        }
-
-        #luk {
-            position: fixed;
-            margin-top: 2rem;
-            padding-right: 2rem;
-        }
-
-        #luk button {
-            font-size: 2rem;
-            position: fixed;
-            right: 20%;
-            background-color: #fdf6d5;
-        }
-
-        .retter {
-            display: grid;
-            grid-gap: 1px;
-            padding: 1px;
-            border: 4.5px solid #312a09;
-            padding: 0px;
-            transition: ease-in 2s;
-            margin: 1.8em;
-            cursor: pointer;
-            height: auto;
-            background-color: #ffeead;
-        }
-
-        #ret {
-            display: grid;
-            grid-gap: 1px;
-            border: 8px double #e81d21;
-            padding: 0em;
-            transition: ease-in 2s;
-            margin: 1em;
-            cursor: pointer;
-            max-height: 500px;
-            overflow: auto;
-            background-color: #fdf6d5;
-            z-index: 1;
-        }
-
-        article #ret {
-            padding: 5px;
-            background: none;
-            border: 2px solid black;
-        }
-
-        #buttonOrder {
-            grid-column: 1;
-            grid-row: 5;
-            padding: 0.6rem 1rem;
-            border: 5px double #e81d21;
-            margin: 1rem;
-            background-color: transparent;
-
-
-        }
-
-        #align {
-            grid-column: 1 / span 2;
-            grid-row: 5;
-            display: inline-block;
-        }
-
-        form {
-            grid-column: 2;
-            grid-row: 5;
-            text-align: right !important;
-            float: right;
-            margin-right: 1rem;
-        }
-
-        .value-button {
-            border: 1px solid #312a09;
-            text-align: center;
-            background: none;
-            padding: 0.5rem;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 4px;
-            border-radius: 50% !important;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        .value-button:hover {
-            cursor: pointer;
-        }
-
-        form #decrease {
-            margin-right: -4px;
-            border-radius: 8px 0 0 8px;
-        }
-
-        form #increase {
-            margin-left: -4px;
-            border-radius: 0 8px 8px 0;
-        }
-
-        form #input-wrap {
-            margin: 0px;
-            padding: 0px;
-        }
-
-        input#number {
-            text-align: center;
-            border: none;
-            margin: 0px;
-            width: 2rem;
-            height: 2rem;
-            background-color: transparent;
-        }
-
-        input[type=number]::-webkit-inner-spin-button,
-        input[type=number]::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-
-        footer section {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-
-            padding: 10px;
-            text-align: center;
-        }
-
-        footer {
-            background: #e81d21;
-            color: #312C14;
-            border: 15px double #fdf6d5;
-        }
-
-        location {
-            text-align: center;
-            margin: 0 auto;
-
-        }
-
-        adress {
-            display: block;
-        }
-
-        article {
-            padding: 5px;
-            border: 2px solid black;
-        }
-
-        @media screen and (max-width: 576px) {
-
-            #hr1,
-            #hr2,
-            #hr3,
-            #hr4 {
-                max-width: 70%;
-            }
-
-            h2 {
-                font-size: 18px;
-            }
-
-            header #breakfastBig {
-                display: none;
-            }
-
-            .retter {
-                width: 88%;
-            }
-
-            #ret {
-                display: grid;
-                grid-gap: 10px;
-                padding: 1px;
-                border: 5px double #e81d21;
-                margin: 0em;
-                width: 100%;
-            }
-
-            form {
-                text-align: right !important;
-                float: right;
-                margin-right: 1rem;
-            }
-
-            .nav-toggle {
-                cursor: pointer;
-                height: 1.5rem;
-                left: 1rem;
-                position: fixed;
-                top: 1rem;
-                width: 2rem;
-                z-index: 2;
-            }
-        }
-
-        @media screen and (min-width: 420px) {
-            h2 {
-                font-size: 18px;
-            }
-
-            #hr1,
-            #hr2,
-            #hr3,
-            #hr4 {
-                max-width: 55%;
-            }
-
-            header #logo {
-                display: block;
-                margin: 0 auto;
-                padding: 6vw 0 0 0;
-                text-align: center !important;
-                max-width: 50%;
-            }
-
-            header #open {
-                display: block;
-                margin: 0 auto;
-                text-align: center !important;
-                max-width: 60%;
-                padding: 3vw 0 0 0;
-            }
-
-            header #breakfast {
-                display: none;
-            }
-
-            header #breakfastBig {
-                display: block;
-                margin: 0 auto;
-                text-align: center !important;
-                max-width: 55%;
-                padding: 2vw 0 0 0;
-            }
-
-            header #see {
-                display: block;
-                margin: 0 auto;
-                text-align: center !important;
-                max-width: 55%;
-                padding: 2vw 0 0 0;
-            }
-        }
-
-        @media screen and (min-width: 576px) {
-            h2 {
-                font-size: 18px;
-            }
-
-            #hr1,
-            #hr2,
-            #hr3,
-            #hr4 {
-                max-width: 35%;
-            }
-
-            .liste {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            header #logo {
-                display: block;
-                margin: 0 auto;
-                padding: 4vw 0 0 0;
-                text-align: center !important;
-                max-width: 40%;
-            }
-
-            header #open {
-                display: block;
-                margin: 0 auto;
-                text-align: center !important;
-                max-width: 45%;
-                padding: 3vw 0 0 0;
-            }
-
-            header #breakfast {
-                display: none;
-            }
-
-            header #breakfastBig {
-                display: block;
-                margin: 0 auto;
-                text-align: center !important;
-                max-width: 40%;
-                padding: 2vw 0 0 0;
-            }
-
-            header #see {
-                display: block;
-                margin: 0 auto;
-                text-align: center !important;
-                max-width: 40%;
-                padding: 2vw 0 0 0;
-            }
-
-            footer section {
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-                padding: 10px;
-                text-align: center;
-            }
-
-            location {
-                max-width: 140px;
-
-            }
-        }
-
-
-        @media only screen and (min-width: 768px) {
-
-            #hr1,
-            #hr2,
-            #hr3,
-            #hr4 {
-                max-width: 25%;
-            }
-
-            header #logo {
-                display: block;
-                margin: 0 auto;
-                padding: 3vw 0 0 0;
-                text-align: center !important;
-                max-width: 30%;
-            }
-
-            header #open {
-                display: block;
-                margin: 0 auto;
-                text-align: center !important;
-                max-width: 40%;
-                padding: 2vw 0 0 0;
-            }
-
-            header #breakfast {
-                display: none;
-            }
-
-            header #breakfastBig {
-                display: block;
-                margin: 0 auto;
-                text-align: center !important;
-                max-width: 33%;
-                padding: 2vw 0 0 0;
-            }
-
-            header #see {
-                display: block;
-                margin: 0 auto;
-                text-align: center !important;
-                max-width: 23%;
-                padding: 1vw 0 0 0;
-            }
-
-            footer section {
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-                padding: 10px;
-                text-align: center;
-            }
-
-            location {
-                max-width: 190px;
-
-            }
-        }
-
-        @media only screen and (min-width: 992px) {
-
-            #hr1,
-            #hr2,
-            #hr3,
-            #hr4 {
-                max-width: 30%;
-            }
-
-            header #logo {
-                display: block;
-                margin: 0 auto;
-                padding: 3vw 0 0 0;
-                text-align: center !important;
-                max-width: 25%;
-            }
-
-            header #open {
-                display: block;
-                margin: 0 auto;
-                text-align: center !important;
-                max-width: 33%;
-                padding: 2vw 0 0 0;
-            }
-
-            header #breakfast {
-                display: none;
-            }
-
-            header #breakfastBig {
-                display: block;
-                margin: 0 auto;
-                text-align: center !important;
-                max-width: 23%;
-                padding: 2vw 0 0 0;
-            }
-
-            header #see {
-                display: block;
-                margin: 0 auto;
-                text-align: center !important;
-                max-width: 23%;
-                padding: 1vw 0 0 0;
-            }
-        }
-
-        @media only screen and (min-width: 1024px) {
-
-            #hr1,
-            #hr2,
-            #hr3,
-            #hr4 {
-                max-width: 20%;
-            }
-
-            .liste {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            footer section {
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-
-                padding: 10px;
-                text-align: center;
-            }
-
-            location {
-                max-width: 280px;
-
-            }
-        }
-
-
-        @media only screen and (min-width: 1200px) {
-            header #logo {
-                display: block;
-                margin: 0 auto;
-                padding: 2vw 0 0 0;
-                text-align: center !important;
-                max-width: 22%;
-            }
-
-            header #open {
-                display: block;
-                margin: 0 auto;
-                text-align: center !important;
-                max-width: 30%;
-                padding: 1vw 0 0 0;
-            }
-
-            header #breakfast {
-                display: none;
-            }
-
-            header #breakfastBig {
-                display: block;
-                margin: 0 auto;
-                text-align: center !important;
-                max-width: 23%;
-                padding: 1vw 0 0 0;
-            }
-
-            header #see {
-                display: block;
-                margin: 0 auto;
-                text-align: center !important;
-                max-width: 23%;
-                padding: 1vw 0 0 0;
-            }
-
-            footer section {
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-
-                padding: 10px;
-                text-align: center;
-            }
-
-            location {
-                max-width: 380px;
-
-            }
-        }
-
-        li a {
-            display: block;
-        }
-
     </style>
 </head>
 
@@ -738,14 +19,25 @@
         </div>
         <div id="indhold"></div>
     </div>
-    <header>
-        <div class="splash">
-            <img id="logo" src="img/Vitas_Diner.png" alt="logo">
-            <img id="open" src="img/open.png" alt="logo">
-            <img id="breakfast" src="img/breakfastMobile.png" alt="breakfast hours">
-            <img id="breakfastBig" src="img/breakfast.png" alt="breakfast hours">
-            <a href="#list"><img id="see" src="img/seeMenu.png" alt="logo"></a>
-            <div class="nav-toggle">
+    <div id="cont">
+        <header>
+            <div class="splash">
+                <a href="/"><img src="img/Vitas_Diner.png" id="logo" alt="logo"></a>
+                <img id="open" src="img/open.png" alt="open24-7">
+                <img id="breakfast" src="img/breakfastMobile.png" alt="breakfast hours">
+                <img id="breakfastBig" src="img/breakfast.png" alt="breakfast hours">
+                <a href="#list"><img id="see" src="img/seeMenu.png" alt="See the menu"></a>
+            </div>
+        </header>
+    </div>
+    <div id="container">
+        <section id="list">
+            <h3 id="anchor">Menu</h3>
+
+            <div class="liste"></div>
+        </section>
+     </div>
+      <div class="nav-toggle">
                 <div class="nav-toggle-bar"></div>
             </div>
             <nav class="nav">
@@ -762,42 +54,32 @@
                 </ul>
 
             </nav>
+        <footer>
+           <div class="grid-container grid-container--fill">
+               <div class="grid-element">
+                <adress>
+                    <h1>Adress:</h1> <br>
+                    <p class="center">6801 Abercorn Street</p> <br>
+                    <p class="center">Savannah</p> <br>
+                    <p class="center">GA 31405</p>
+                </adress>
+               </div>
+               <div class="grid-element">
+                <hours>
+                    <h1>Opening hours</h1> <br>
+                    <p class="center">Monday - Sunday</p><br>
+                    <h1>24/7</h1>
+                </hours>
+               </div>
+               <div class="grid-element">
+                   <location>
+                    <div id="googleMap"><iframe width="300" height="300" src="https://maps.google.com/maps?max-width=300&amp;max-height=300&amp;hl=en&amp;q=6801%20Abercorn%20Street+(Dennys)&amp;ie=UTF8&amp;t=&amp;z=11&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no"></iframe>
 
-        </div>
-    </header>
-
-    <section id="list">
-        <h3 id="anchor">Menu</h3>
-
-        <div class="liste"></div>
-    </section>
-    <footer>
-        <section>
-            <adress>
-                <h1>Adress:</h1> <br>
-                <p class="center">6801 Abercorn Street</p> <br>
-                <p class="center">Savannah</p> <br>
-                <p class="center">GA 31405</p>
-            </adress>
-            <hours>
-                <h1>Opening hours</h1> <br>
-                <p class="center">Monday - Sunday</p><br>
-                <h1>24/7</h1>
-            </hours>
-            <location>
-                <div style="overflow:hidden;width: 300px;position: relative;"><iframe width="300" height="300" src="https://maps.google.com/maps?width=300&amp;height=300&amp;hl=en&amp;q=6801%20Abercorn%20Street+(Dennys)&amp;ie=UTF8&amp;t=&amp;z=11&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-                    <div style="position: absolute;width: 80%;bottom: 10px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;"><small style="line-height: 1.8;font-size: 2px;background: #fff;">Powered by <a href="https://embedgooglemaps.com/fr/">https://embedgooglemaps.com/fr/</a> & <a href="http://phplinkdir.com">www://phplinkdir.com</a></small></div>
-                    <style>
-                        #gmap_canvas img {
-                            max-width: none !important;
-                            background: none !important
-                        }
-
-                    </style>
-                </div><br />
-            </location>
-        </section>
-    </footer>
+                    </div>
+                    </location>
+                    </div>
+                </div>
+        </footer>
     <script>
         function increaseValue() {
             var value = parseInt(document.getElementById('number').value, 10);
@@ -813,31 +95,6 @@
             value--;
             document.getElementById('number').value = value;
         }
-
-    </script>
-    <script>
-        (function() {
-
-            var hamburger = {
-                navToggle: document.querySelector(".nav-toggle"),
-                nav: document.querySelector("nav"),
-
-                doToggle: function(e) {
-                    e.preventDefault();
-                    this.navToggle.classList.toggle("expanded");
-                    this.nav.classList.toggle("expanded");
-                }
-            };
-
-            hamburger.navToggle.addEventListener("click", function(e) {
-                hamburger.doToggle(e);
-            });
-            hamburger.nav.addEventListener("click", function(e) {
-                hamburger.doToggle(e);
-            });
-
-        }());
-
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", start);
@@ -890,6 +147,7 @@
                                 <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
                             </form>
                             </div>
+<p class="add"><input type="checkbox"> ${ret.add}</p><p class="add1"><input type="checkbox"> ${ret.add1}</p><p class="add2"><input type="checkbox"> ${ret.add2}</p><p class="add3"><input type="checkbox"> ${ret.add3}</p><p class="ekstra"><input type="checkbox"> ${ret.ekstra}</p><p class="ekstra1"><input type="checkbox"> ${ret.ekstra1}</p><p class="ekstra2"><input type="checkbox"> ${ret.ekstra2}</p>
                         </article>`;
                         document.querySelector("#popup").style.display = "block";
                         document.querySelector("#popup #luk").addEventListener("click", close);
@@ -915,7 +173,29 @@
             visRet();
         }
         start();
+    </script>
+    <script>
+        (function() {
 
+            var hamburger = {
+                navToggle: document.querySelector(".nav-toggle"),
+                nav: document.querySelector("nav"),
+
+                doToggle: function(e) {
+                    e.preventDefault();
+                    this.navToggle.classList.toggle("expanded");
+                    this.nav.classList.toggle("expanded");
+                }
+            };
+
+            hamburger.navToggle.addEventListener("click", function(e) {
+                hamburger.doToggle(e);
+            });
+            hamburger.nav.addEventListener("click", function(e) {
+                hamburger.doToggle(e);
+            });
+
+        }());
     </script>
 </body>
 
