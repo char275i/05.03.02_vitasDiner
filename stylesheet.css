@@ -3,7 +3,7 @@
 }
 
 html {
-    font: normal "Source Sans Pro", Arial, sans-serif;
+    font: normal "Source Sans Pro", Helvetica, Arial, sans-serif;
 }
 
 body {
@@ -15,15 +15,19 @@ body {
     color: inherit;
     margin: 0 auto;
     background-color: #F9E582;
-    margin: 0rem;
-    padding: 0px;
     height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 a {
     color: inherit;
     cursor: pointer;
     text-decoration: none;
+}
+
+a {
+    text-align: center;
 }
 
 a:hover {
@@ -50,7 +54,6 @@ img {
     grid-column: 1 / span 2;
     grid-row: 1;
     width: 100%;
-    border: 2px solid transparent;
 }
 
 #hr1 {
@@ -79,7 +82,7 @@ img {
 h1 {
     text-align: center;
     margin-top: 0;
-    padding-top: 1rem;
+    padding-top: 3rem;
     text-decoration: underline;
 }
 
@@ -177,10 +180,6 @@ p.center {
     text-align: left;
 }
 
-a {
-    text-align: center;
-}
-
 .splash {
     height: 100vh;
     width: 100%;
@@ -258,8 +257,7 @@ header #see {
 }
 
 #container {
-    padding-top: 1rem solid black;
-    z-index: -100;
+    display: block;
 }
 
 .retter {
@@ -361,7 +359,7 @@ input#number {
     text-align: center;
     border: none;
     margin: 0px;
-    width: 2rem;
+    width: 1rem;
     height: 2rem;
     background-color: transparent;
 }
@@ -372,48 +370,51 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-footer {
+.footer {
+    display: block;
+}
+
+.grid-container {
+    display: grid;
     background: #e81d21;
     color: #312C14;
     border: 15px double #fdf6d5;
     z-index: -10;
 }
 
-.grid-container {
-    display: grid;
-}
-
 .grid-container--fill {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     overflow: hidden;
 }
 
 .grid-element {
-    padding: 20px;
-    border: 8px double #312a09;
+    padding: 4px;
+    border: 2px #312a09;
 }
 
-adress {
+.adress {
     text-align: center;
 }
 
-hours {
+.hours {
     text-align: center;
+    margin: 0 auto;
 }
 
-location {
+.location {
     text-align: center;
     margin: 0 auto;
 }
 
 #googleMap {
-    max-width: 400px;
+    max-width: 100%;
+    height: auto;
     margin: 0 auto;
-    overflow: hidden;
+    text-align: center;
 }
 
-#gmap_canvas img {
-    max-width: 300Px;
+article.retter {
+    max-width: 100%;
 }
 
 article {

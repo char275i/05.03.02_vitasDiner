@@ -15,8 +15,10 @@
          display: none;
      }
 
-     .retter {
-         width: 88%;
+     .retter {}
+
+     article.retter {
+         max-width: 100%;
      }
 
      #ret {
@@ -28,46 +30,48 @@
          width: 100%;
      }
 
-     form {
-         text-align: right !important;
-         float: right;
-         margin-right: 1rem;
-     }
-
-     .value-button {
-         border: 1px solid #312a09;
-         text-align: center;
-         background: none;
-         padding: 0.3rem;
-         text-align: center;
-         text-decoration: none;
-         display: inline-block;
-         font-size: 10px;
-         margin: 1px 1px;
-     }
-
-     form {
-         text-align: right !important;
-         float: right;
-         margin-right: 0.2rem;
-         padding: 0.3rem;
-     }
-
-     #buttonOrder {
-         grid-column: 1;
-         grid-row: 5;
-         padding: 0.2rem 0.1rem;
-         border: 5px double #e81d21;
-         margin: 0.4rem;
-         background-color: transparent;
-     }
-
      .nav-toggle {
          cursor: pointer;
          height: 1.5rem;
          left: 1rem;
          top: 1rem;
          width: 2rem;
+     }
+
+     footer {
+         max-width: 100%;
+
+     }
+
+     .grid-container--fill {
+         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+         float: none;
+
+     }
+
+     form {
+         text-align: right !important;
+         float: right;
+         font-size: 4px;
+         margin: 0.1rem;
+     }
+
+     input#number {
+         text-align: center;
+         border: none;
+         margin: 0px;
+         width: 0.6rem;
+         height: 0.6rem;
+         background-color: transparent;
+     }
+
+     #buttonOrder {
+         grid-column: 1;
+         grid-row: 5;
+         padding: 0.2rem;
+         border: 5px double #e81d21;
+         margin: 0.1rem;
+         background-color: transparent;
      }
  }
 
@@ -118,40 +122,6 @@
          max-width: 55%;
          padding: 2vw 0 0 0;
      }
-
-     #buttonOrder {
-         grid-column: 1;
-         grid-row: 5;
-         padding: 0.2rem;
-         border: 5px double #e81d21;
-         margin: 0.4rem;
-         background-color: transparent;
-     }
-
-     form {
-         grid-column: 2;
-         grid-row: 5;
-         text-align: right !important;
-         float: right;
-         margin: 0.4rem;
-         padding: 0.2rem;
-     }
-
-     .value-button {
-         border: 1px solid #312a09;
-         text-align: center;
-         background: none;
-         padding: 0.2rem;
-         text-align: center;
-         text-decoration: none;
-         display: inline-block;
-         font-size: 16px;
-     }
-
-
-     footer section {}
-
-     location {}
  }
 
  @media screen and (min-width: 576px) {
@@ -205,10 +175,14 @@
          max-width: 40%;
          padding: 2vw 0 0 0;
      }
-
-     footer section {}
-
-     location {}
+     #buttonOrder {
+    grid-column: 1;
+    grid-row: 5;
+    padding: 0.6rem 0.3rem;
+    border: 5px double #e81d21;
+    margin: 0.2rem;
+    background-color: transparent;
+}
  }
 
 
@@ -257,9 +231,25 @@
          padding: 1vw 0 0 0;
      }
 
-     footer section {}
-
-     location {}
+     .grid-container--fill {
+         grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+         overflow: hidden;
+     }
+     form {
+    grid-column: 2;
+    grid-row: 5;
+    padding: 0rem;
+             margin-right: 1rem;
+}
+     #buttonOrder {
+    grid-column: 1;
+    grid-row: 5;
+    padding: 0.4rem 0.2rem;
+    border: 5px double #e81d21;
+    margin: 0rem;
+    background-color: transparent;
+    margin-left: 0.5rem;
+}
  }
 
  @media only screen and (min-width: 992px) {
@@ -306,6 +296,25 @@
          max-width: 23%;
          padding: 1vw 0 0 0;
      }
+
+     .grid-container--fill {
+         grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+         overflow: hidden;
+     }
+     form {
+    grid-column: 2;
+    grid-row: 5;
+    padding: 0rem;
+}
+     #buttonOrder {
+    grid-column: 1;
+    grid-row: 5;
+    padding: 0.4rem 0.2rem;
+    border: 5px double #e81d21;
+    margin: 0rem;
+    background-color: transparent;
+    margin-left: 0.5rem;
+}
  }
 
  @media only screen and (min-width: 1024px) {
@@ -321,12 +330,7 @@
          grid-template-columns: repeat(3, 1fr);
      }
 
-     footer section {}
 
-     location {
-         max-width: 280px;
-
-     }
  }
 
 
@@ -366,10 +370,6 @@
          max-width: 23%;
          padding: 1vw 0 0 0;
      }
-
-     footer section {}
-
-     location {}
  }
 
  li a {
