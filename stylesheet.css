@@ -441,11 +441,11 @@ a {
     left: 0;
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 60px;
+    padding-top: 50px;
     background: rgba(232, 29, 33, 0.9);
     color: rgba(250, 224, 96, 0.9);
     font-size: 25px;
-    line-height: 2.5rem;
+    line-height: 2rem;
 }
 
 #mySidenav {
@@ -453,7 +453,7 @@ a {
 }
 
 .openBtn {
-    font-size: 50px;
+    font-size: 40px;
     cursor: pointer;
     margin-left: 1rem !important;
     position: -webkit-sticky;
@@ -505,7 +505,12 @@ li {
 }
 
 #sticky {
-    outline: 6px dotted rgba(232, 29, 33, 0.9);
+    outline: 4px solid rgba(232, 29, 33, 0.9);
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+}
+li a {
+    display: block;
+    margin-left: 0.5rem;
+    text-align: left;
 }
