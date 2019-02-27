@@ -8,94 +8,24 @@
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <link rel="stylesheet" type="text/css" href="media.css">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
     <style>
-        a {
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .sidenav {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
-            background: rgba(232, 29, 33, 0.9);
-            color: rgba(250, 224, 96, 0.9);
-            font-size: 25px;
-            line-height: 2.5rem;
-        }
-        #mySidenav {
-            text-decoration: none;
-        }
-
-        .openBtn {
-            font-size: 50px;
-            cursor: pointer;
-            padding-right: 1rem;
-            margin-left: 1rem !important;
-            position: -webkit-sticky;
-            position: sticky;
-            top: 0 !important;
-            padding: 5px;
-        }
-
-        .closebtn {
-            font-size: 60px;
-            clear: both;
-            margin-top: -3rem;
-            margin-left: 1rem;
-            color: #312C14;
-        }
-        .myBtn {
-            text-align: left;
-        }
-
-        ul,
-        menu,
-        dir {
-            list-style: none;
-        }
-
-        li {
-                {
-                font-size: 20px;
-                text-align: left;
-            }
-        }
-
-        #momBtn {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 30px;
-            z-index: 99;
-            font-size: 15px;
-            background: rgba(232, 29, 33);
-            color: #312C14;
-            outline: 2px solid #312C14;
-            cursor: pointer;
-            padding: 15px;
-        }
-
-        #momBtn:hover {
-            background-color: #312C14;
-            color: rgba(250, 224, 96, 0.9);
-            outline: 2px solid #312C14;
-        }
-
-        #sticky {
-            position: -webkit-sticky;
-            position: sticky;
-            top: 0 !important;
-            padding: 5px;
-        }
-
     </style>
 </head>
 
@@ -109,56 +39,52 @@
     <header>
         <div class="splash">
             <a href="index.html"><img src="img/Vitas_Diner.png" id="logo" alt="logo"></a>
-            <img id="open" src="img/open.png" alt="open24-7">
-            <img id="breakfast" src="img/breakfastMobile.png" alt="breakfast hours">
-            <img id="breakfastBig" src="img/breakfast.png" alt="breakfast hours">
-            <a href="#list"><img id="see" src="img/seeMenu.png" alt="See the menu"></a>
+            <a href="#list">
+                <img id="open" src="img/open.png" alt="open24-7">
+                <img id="breakfast" src="img/breakfastMobile.png" alt="breakfast hours">
+                <img id="breakfastBig" src="img/breakfast.png" alt="breakfast hours">
+                <img id="see" src="img/seeMenu.png" alt="See the menu"></a>
         </div>
     </header>
     <div class="container" id="list">
-        <section>
             <div id="#myBtn"></div>
+        <section>
+            <h1 id="anchor">Menu</h1>
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <ul>
-                    <a href="#anchor" class="filter" data-hold="alle" onclick="closeNav()">
-                        <li>Menu</li>
-                    </a>
-                    <a href="#anchor" class="filter" data-hold="forretter" onclick="closeNav()">
-                        <li>Starters</li>
-                    </a>
-                    <a href="#anchor" class="filter" data-hold="breakfast" onclick="closeNav()">
-                        <li>Breakfast</li>
-                    </a>
-                    <a href="#anchor" class="filter" data-hold="omelets" onclick="closeNav()">
-                        <li>Omelets</li>
-                    </a>
-                    <a href="#anchor" class="filter" data-hold="salads" onclick="closeNav()">
-                        <li>Salads</li>
-                    </a>
-                    <a href="#anchor" class="filter" data-hold="burgers" onclick="closeNav()">
-                        <li>Bruger</li>
-                    </a>
-                    <a href="#anchor" class="filter" data-hold="steaks" onclick="closeNav()">
-                        <li>Steaks</li>
-                    </a>
-                    <a href="#anchor" class="filter" data-hold="classic" onclick="closeNav()">
-                        <li>Classics</li>
-                    </a>
-                    <a href="#anchor" class="filter" data-hold="drinks" onclick="closeNav()">
-                        <li>Beverages</li>
-                    </a>
-                    <a href="#us" onclick="closeNav()">
-                        <li>Find us</li>
-                    </a>
+                    <li><a href="#anchor" class="filter" data-hold="alle" onclick="closeNav()">
+                        Menu
+                    </a></li>
+                    <li><a href="#anchor" class="filter" data-hold="forretter" onclick="closeNav()">
+                        Starters
+                    </a></li>
+                    <li><a href="#anchor" class="filter" data-hold="breakfast" onclick="closeNav()">
+                        Breakfast
+                    </a></li>
+                    <li><a href="#anchor" class="filter" data-hold="omelets" onclick="closeNav()">Omelets</a></li>
+                    <li><a href="#anchor" class="filter" data-hold="salads" onclick="closeNav()">
+                            Salads
+                        </a></li>
+                    <li><a href="#anchor" class="filter" data-hold="burgers" onclick="closeNav()">
+                            Bruger
+                        </a></li>
+                    <li><a href="#anchor" class="filter" data-hold="steaks" onclick="closeNav()">
+                            Steaks
+                        </a></li>
+                    <li><a href="#anchor" class="filter" data-hold="classic" onclick="closeNav()">
+                            Classics
+                        </a></li>
+                    <li><a href="#anchor" class="filter" data-hold="drinks" onclick="closeNav()">
+                            Beverages
+                        </a></li>
+                    <li><a href="#us" onclick="closeNav()">
+                            Find us
+                        </a></li>
                 </ul>
 
             </div>
             <div class="openBtn" onclick="openNav()"><span id="sticky">&#9776;</span></div>
-        </section>
-        <section>
-            <button onclick="topFunction()" id="momBtn" title="Go to top">Top</button>
-            <h1 id="anchor">Menu</h1>
             <div class="liste"></div>
         </section>
         <footer>
@@ -188,9 +114,10 @@
                 </div>
             </div>
         </footer>
+        <button onclick="topFunction()" id="momBtn" title="Go to top">To Top</button>
     </div>
 
-    <!-- increase / decrease -->
+
     <script>
         function increaseValue() {
             var value = parseInt(document.getElementById('number').value, 10);
@@ -206,9 +133,8 @@
             value--;
             document.getElementById('number').value = value;
         }
-
     </script>
-    <!-- Liste & filter -->
+
     <script>
         document.addEventListener("DOMContentLoaded", start);
         let alleRetter = [];
@@ -287,10 +213,8 @@
             visRet();
         }
         start();
-
     </script>
 
-    <!------------ To top scroll -------------->
     <script>
         window.onscroll = function() {
             scrollFunction()
@@ -309,10 +233,8 @@
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
         }
-
     </script>
 
-    <!------------ Luk nav onClick -------------->
     <script>
         function openNav() {
             document.getElementById("mySidenav").style.width = "250px";
@@ -321,7 +243,6 @@
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
         }
-
     </script>
 </body>
 

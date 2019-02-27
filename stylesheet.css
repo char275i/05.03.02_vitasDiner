@@ -3,7 +3,7 @@
 }
 
 html {
-    font: normal "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font-family: normal, Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -82,7 +82,7 @@ img {
 h1 {
     text-align: center;
     margin-top: 0;
-    padding-top: 3rem;
+    padding-top: 1rem;
     text-decoration: underline;
 }
 
@@ -258,6 +258,7 @@ header #see {
 
 #container {
     display: block;
+    position: relative;
 }
 
 .retter {
@@ -420,4 +421,91 @@ article.retter {
 article {
     padding: 5px;
     border: 2px solid black;
+}
+
+
+
+
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    background: rgba(232, 29, 33, 0.9);
+    color: rgba(250, 224, 96, 0.9);
+    font-size: 25px;
+    line-height: 2.5rem;
+}
+
+#mySidenav {
+    text-decoration: none;
+}
+
+.openBtn {
+    font-size: 50px;
+    cursor: pointer;
+    margin-left: 1rem !important;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0 !important;
+}
+
+.closebtn {
+    font-size: 60px;
+    clear: both;
+    margin-top: -3rem;
+    margin-left: 1rem;
+    color: #312C14;
+}
+
+.myBtn {
+    text-align: left;
+}
+
+ul,
+menu,
+dir {
+    list-style: none;
+}
+
+li {
+    font-size: 20px;
+    text-align: left;
+}
+
+#momBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 15px;
+    background-color: #312C14;
+    color: rgba(250, 224, 96, 0.9);
+    outline: 6px dotted rgba(232, 29, 33, 0.9);
+    cursor: pointer;
+    padding: 15px;
+}
+
+#momBtn:hover {
+    background: rgba(250, 224, 96, 0.9);
+    color: rgba(232, 29, 33);
+    outline: 6px dotted #312C14;
+}
+
+#sticky {
+    outline: 6px dotted rgba(232, 29, 33, 0.9);
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
