@@ -8,20 +8,6 @@
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <link rel="stylesheet" type="text/css" href="media.css">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
@@ -47,44 +33,31 @@
         </div>
     </header>
     <div class="container" id="list">
-            <div id="#myBtn"></div>
         <section>
             <h1 id="anchor">Menu</h1>
             <div id="mySidenav" class="sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">Tattoo</a>
                 <ul>
                     <li><a href="#anchor" class="filter" data-hold="alle" onclick="closeNav()">
-                        Menu
-                    </a></li>
-                    <li><a href="#anchor" class="filter" data-hold="forretter" onclick="closeNav()">
-                        Starters
-                    </a></li>
-                    <li><a href="#anchor" class="filter" data-hold="breakfast" onclick="closeNav()">
-                        Breakfast
-                    </a></li>
-                    <li><a href="#anchor" class="filter" data-hold="omelets" onclick="closeNav()">Omelets</a></li>
-                    <li><a href="#anchor" class="filter" data-hold="salads" onclick="closeNav()">
-                            Salads
+                            Tattoo
                         </a></li>
-                    <li><a href="#anchor" class="filter" data-hold="burgers" onclick="closeNav()">
-                            Bruger
+                    <li><a href="#anchor" class="filter" data-hold="animal" onclick="closeNav()">
+                            Animal
                         </a></li>
-                    <li><a href="#anchor" class="filter" data-hold="steaks" onclick="closeNav()">
-                            Steaks
+                    <li><a href="#anchor" class="filter" data-hold="fullBack" onclick="closeNav()">
+                            Fullback
                         </a></li>
-                    <li><a href="#anchor" class="filter" data-hold="classic" onclick="closeNav()">
-                            Classics
+                    <li><a href="#anchor" class="filter" data-hold="horro" onclick="closeNav()">Horro</a></li>
+                    <li><a href="#anchor" class="filter" data-hold="oldSchool" onclick="closeNav()">
+                            Old School
                         </a></li>
-                    <li><a href="#anchor" class="filter" data-hold="drinks" onclick="closeNav()">
-                            Beverages
-                        </a></li>
-                    <li><a href="#us" onclick="closeNav()">
-                            Find us
+                    <li><a href="#anchor" class="filter" data-hold="realism" onclick="closeNav()">
+                            Realisme
                         </a></li>
                 </ul>
 
             </div>
-            <div class="openBtn" onclick="openNav()"><span id="sticky">&#9776;</span></div>
+            <div id="sticky" class="openBtn" onclick="openNav()">&#9776;</div>
             <div class="liste"></div>
         </section>
         <footer>
@@ -133,6 +106,7 @@
             value--;
             document.getElementById('number').value = value;
         }
+
     </script>
 
     <script>
@@ -141,7 +115,7 @@
         let filter = "alle";
         const dest = document.querySelector(".liste");
         async function start() {
-            const myJson = await fetch("dinerTime1.json");
+            const myJson = await fetch("tattoos.json");
             alleRetter = await myJson.json();
             alleRetter.sort((a, b) => {
                 return a.navn.localeCompare(b.navn)
@@ -158,15 +132,6 @@
                         <div id="nav"></div>
                         <img src="imgs/small/${ret.billede}-sm.jpg" alt ="${ret.navn}">
                         <h2>${ret.navn}</h2>
-                        <p>${ret.kort}</p>
-                        <p id="leftPris">$ ${ret.pris}</p>
-                        <div id="align"><button id="buttonOrder">ORDER NOW</button>
-                            <form>
-                                <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
-                                <input type="number" id="number" value="0" />
-                                <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
-                            </form>
-                        </div>
                     </article>`;
                     dest.insertAdjacentHTML("beforeend", template);
                     dest.lastElementChild.addEventListener("click", () => {
@@ -178,16 +143,6 @@
                     <article class="retter" id="ret">
                             <img class = "billede" src ="imgs/large/${ret.billede}.jpg" alt = "${ret.navn}">
                             <div id="combineH2Hr"><hr id=hr1><hr id=hr2><h2>${ret.navn}</h2><hr id=hr3><hr id=hr4></div>
-                            <p id="leftPris">$ ${ret.pris}</p>
-                            <p>${ret.lang}</p>
-                            <div id="align"><button id="buttonOrder">ORDER NOW</button>
-                            <form>
-                                <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
-                                <input type="number" id="number" value="0" />
-                                <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
-                            </form>
-                            </div>
-<p class="add"><input type="checkbox"> ${ret.add}</p><p class="add1"><input type="checkbox"> ${ret.add1}</p><p class="add2"><input type="checkbox"> ${ret.add2}</p><p class="add3"><input type="checkbox"> ${ret.add3}</p><p class="ekstra"><input type="checkbox"> ${ret.ekstra}</p><p class="ekstra1"><input type="checkbox"> ${ret.ekstra1}</p><p class="ekstra2"><input type="checkbox"> ${ret.ekstra2}</p>
                         </article>`;
                         document.querySelector("#popup").style.display = "block";
                         document.querySelector("#popup #luk").addEventListener("click", close);
@@ -213,6 +168,7 @@
             visRet();
         }
         start();
+
     </script>
 
     <script>
@@ -233,16 +189,18 @@
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
         }
+
     </script>
 
     <script>
         function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("mySidenav").style.width = "150px";
         }
 
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
         }
+
     </script>
 </body>
 

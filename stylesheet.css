@@ -1,39 +1,3 @@
-*:focus {
-    outline: none;
-}
-
-html {
-    font-family: normal, Arial, Helvetica, sans-serif;
-}
-
-body {
-    display: grid;
-    font-family: Ariel, Sans-Serif;
-    font-style: normal;
-    font-weight: 400;
-    color: #444444;
-    color: inherit;
-    margin: 0 auto;
-    background-color: #F9E582;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-}
-
-a {
-    color: inherit;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-a {
-    text-align: center;
-}
-
-a:hover {
-    opacity: 0.8;
-}
-
 .menu {
     text-align: center;
     margin-top: 2em;
@@ -78,124 +42,16 @@ img {
     border: 3px dotted #312a09;
     border-style: none none dotted;
 }
-
-h1 {
-    text-align: center;
-    margin-top: 0;
-    padding-top: 1rem;
-    text-decoration: underline;
-}
-
-h2 {
-    grid-column: 1 / span 2;
-    grid-row: 2;
-    text-align: center;
-}
-
 #combineH2Hr {
     grid-column: 1 / span 2;
     grid-row: 2;
     text-align: center;
 }
-
-h3 {
-    text-align: center;
-}
-
-p {
-    grid-column: 1 / span 2;
-    grid-row: 3;
-    text-align: left;
-    margin-left: 0.5em;
-}
-
 p.center {
     text-align: center;
     font-size: 1rem;
     line-height: 0.1px;
     font-weight: bold;
-}
-
-#leftPris {
-    grid-column: 1 / span 2;
-    grid-row: 4;
-    float: none;
-    margin-right: 1rem;
-    text-align: right;
-}
-
-.add {
-    grid-column: 1 / span 2;
-    grid-row: 6;
-    float: none;
-    margin-right: 1rem;
-    text-align: left;
-}
-
-.add1 {
-    grid-column: 1 / span 2;
-    grid-row: 7;
-    float: none;
-    margin-right: 1rem;
-    text-align: left;
-}
-
-.add2 {
-    grid-column: 1 / span 2;
-    grid-row: 8;
-    float: none;
-    margin-right: 1rem;
-    text-align: left;
-}
-
-.add3 {
-    grid-column: 1 / span 2;
-    grid-row: 9;
-    float: none;
-    margin-right: 1rem;
-    text-align: left;
-}
-
-.ekstra {
-    grid-column: 1 / span 2;
-    grid-row: 10;
-    float: none;
-    margin-right: 1rem;
-    text-align: left;
-}
-
-.ekstra1 {
-    grid-column: 1 / span 2;
-    grid-row: 11;
-    float: none;
-    margin-right: 1rem;
-    text-align: left;
-}
-
-.ekstra2 {
-    grid-column: 1 / span 2;
-    grid-row: 12;
-    float: none;
-    margin-right: 1rem;
-    text-align: left;
-}
-
-.splash {
-    height: 100vh;
-    width: 100%;
-    background-color: #312C14;
-}
-
-#logo {
-    margin-top: 150px;
-}
-
-header #logo {
-    display: block;
-    margin: 0 auto;
-    padding: 8vw 0 0 0;
-    text-align: center !important;
-    max-width: 55%;
 }
 
 header #open {
@@ -205,23 +61,6 @@ header #open {
     max-width: 80%;
     padding: 4vw 0 0 0;
 }
-
-header #breakfast {
-    display: block;
-    margin: 0 auto;
-    text-align: center !important;
-    max-width: 60%;
-    padding: 5vw 0 0 0;
-}
-
-header #see {
-    display: block;
-    margin: 0 auto;
-    text-align: center !important;
-    max-width: 60%;
-    padding: 5vw 0 0 0;
-}
-
 #popup {
     top: 0;
     width: 100vw;
@@ -230,7 +69,9 @@ header #see {
     display: none;
     overflow: scroll;
 }
-
+#popup::-webkit-scrollbar{
+    display: none;
+}
 #indhold {
 
     width: 70vw;
@@ -294,85 +135,10 @@ article #ret {
     border: 2px solid black;
 }
 
-#buttonOrder {
-    grid-column: 1;
-    grid-row: 5;
-    padding: 0.6rem 1rem;
-    border: 5px double #e81d21;
-    margin: 1rem;
-    background-color: transparent;
-}
-
 #align {
     grid-column: 1 / span 2;
     grid-row: 5;
     display: inline-block;
-}
-
-.value-button {
-    border: 1px solid #312a09;
-    text-align: center;
-    background: none;
-    padding: 0.5rem;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 4px;
-    border-radius: 50% !important;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.value-button:hover {
-    cursor: pointer;
-}
-
-form {
-    grid-column: 2;
-    grid-row: 5;
-    text-align: right !important;
-    float: right;
-    padding: 1rem;
-}
-
-
-form #decrease {
-    margin-right: -4px;
-    border-radius: 8px 0 0 8px;
-}
-
-form #increase {
-    margin-left: -4px;
-    border-radius: 0 8px 8px 0;
-}
-
-form #input-wrap {
-    margin: 0px;
-    padding: 0px;
-}
-
-input#number {
-    text-align: center;
-    border: none;
-    margin: 0px;
-    width: 1rem;
-    height: 2rem;
-    background-color: transparent;
-}
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-.footer {
-    display: block;
 }
 
 .grid-container {
@@ -388,32 +154,6 @@ input[type=number]::-webkit-outer-spin-button {
     overflow: hidden;
 }
 
-.grid-element {
-    padding: 4px;
-    border: 2px #312a09;
-}
-
-.adress {
-    text-align: center;
-}
-
-.hours {
-    text-align: center;
-    margin: 0 auto;
-}
-
-.location {
-    text-align: center;
-    margin: 0 auto;
-}
-
-#googleMap {
-    max-width: 100%;
-    height: auto;
-    margin: 0 auto;
-    text-align: center;
-}
-
 article.retter {
     max-width: 100%;
 }
@@ -421,35 +161,6 @@ article.retter {
 article {
     padding: 5px;
     border: 2px solid black;
-}
-
-
-
-
-
-a {
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 50px;
-    background: rgba(232, 29, 33, 0.9);
-    color: rgba(250, 224, 96, 0.9);
-    font-size: 25px;
-    line-height: 2rem;
-}
-
-#mySidenav {
-    text-decoration: none;
 }
 
 .openBtn {
@@ -469,48 +180,9 @@ a {
     color: #312C14;
 }
 
-.myBtn {
-    text-align: left;
-}
-
-ul,
-menu,
-dir {
-    list-style: none;
-}
-
-li {
-    font-size: 20px;
-    text-align: left;
-}
-
-#momBtn {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 30px;
-    z-index: 99;
-    font-size: 15px;
-    background-color: #312C14;
-    color: rgba(250, 224, 96, 0.9);
-    outline: 6px dotted rgba(232, 29, 33, 0.9);
-    cursor: pointer;
-    padding: 15px;
-}
-
-#momBtn:hover {
-    background: rgba(250, 224, 96, 0.9);
-    color: rgba(232, 29, 33);
-    outline: 6px dotted #312C14;
-}
-
 #sticky {
     outline: 4px solid rgba(232, 29, 33, 0.9);
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-}
-li a {
-    display: block;
-    margin-left: 0.5rem;
-    text-align: left;
+    max-width: 2rem;
 }

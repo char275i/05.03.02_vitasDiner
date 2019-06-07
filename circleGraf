@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vita's Diner</title>
+
+    <style>
+        #svgcontainer{
+            width: 40vw;
+            height: auto;
+        }
+        #circle{
+            background: #999;
+            border-radius: 50%;
+            transform: rotate(-90deg);
+            
+        }
+       #pie1{
+            stroke-width: 100;
+            stroke: #222;
+            fill: none;
+            stroke-dasharray: 60 314; 
+           /* stroke-dashoffset:  276;*/
+            } 
+        #pie2{
+            stroke-width: 100;
+            stroke: #F00;
+            fill: none;
+            stroke-dasharray: 40 314; 
+            stroke-dashoffset: -60;
+            }
+        #pie3{
+            stroke-width: 100;
+            stroke: #ca1;
+            fill: none;
+            stroke-dasharray: 80 314; 
+            stroke-dashoffset: -140;
+            }
+       /* #pie3{
+            stroke-width: 100;
+            stroke: white;
+            fill: none;
+            stroke-dasharray: 10 314; 
+            stroke-dashoffset: -196;
+            }
+        #pie4{
+            stroke-width: 100;
+            stroke: #F00;
+            fill: none;
+            stroke-dasharray: 80 314; 
+            stroke-dashoffset: -116;
+            }
+    </style>
+</head>
+
+<body>
+        <div id="svgcontainer">
+            <svg id="circle" viewbox="0 0 100 100" >
+                <circle id="pie1" r="50" cx="50" cy="50"/>
+                <circle id="pie2" r="50" cx="50" cy="50"/>
+                <circle id="pie3" r="50" cx="50" cy="50"/>
+                <circle id="pie4" r="50" cx="50" cy="50"/>
+            </svg>
+        </div>
+
+    </body>
+</html>
